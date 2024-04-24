@@ -1,5 +1,7 @@
 name: flutter_application_2
 description: "A new Flutter project."
+assets:
+  - assets/model.tflite
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,6 +32,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  camera: ^0.10.5+9
+  
+  torch_light: ^1.0.0
+  permission_handler: ^11.3.1
+  image: ^4.1.7
+  flutter_vision: ^1.1.4
+  
+  
 
 
   # The following adds the Cupertino Icons font to your application.
