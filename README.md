@@ -62,7 +62,6 @@ For future improvements, the author mainly considers the following points:
 4. Reset the Raspberry Pi system so that it can run a program that simultaneously performs image capture and gesture recognition and controls the lighting system.
 
 ## Bibliography
-*If you added any references then add them in here using this format:*
 
 1. Qualcomm. (n.d.). Jester Dataset. Retrieved from https://developer.qualcomm.com/software/ai-datasets/jester
 
