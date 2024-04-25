@@ -1,6 +1,7 @@
-# Report title goes here
+# Gesture_Lightkeeper for CASA0018
 
-Name of author, link to github repo with project work in / link to Edge Impulse projects
+Zekun Wang 
+[Here is the link to github](https://github.com/AntiRain114/Lightkeeper)
 
 ## Introduction
 The goal of LightKeeper is to give embedded systems the ability to control lights through gesture recognition based on pre-trained tensorflow lite models. Users should be able to use special gestures to control the lighting system, allowing the smart lighting system to provide users with more convenient services. In the smart home market, there is no shortage of products that can control lighting systems, but most of them rely on voice recognition functions, which require users to express their thoughts and correctly identify them before they can control the lighting system. This method is not fast enough and can be improved to be more convenient. After learning tensorflow lite and studying the examples provided by tensorflow official, I got the inspiration for this project. The project can be roughly divided into two phases. The first phase is based on the work identification produced by 20bn-jester, and the code is completely rewritten by the author. However, since the model was far from ideal, the author chose the second option. This solution is based on the gesture_recongnition project on github and controls the lighting system by identifying the numbers represented by specific gestures.
@@ -61,21 +62,21 @@ For future improvements, the author mainly considers the following points:
 ## Bibliography
 *If you added any references then add them in here using this format:*
 
-1. Last name, First initial. (Year published). Title. Edition. (Only include the edition if it is not the first edition) City published: Publisher, Page(s). http://google.com
+1. Qualcomm. (n.d.). Jester Dataset. Retrieved from https://developer.qualcomm.com/software/ai-datasets/jester
 
-2. Last name, First initial. (Year published). Title. Edition. (Only include the edition if it is not the first edition) City published: Publisher, Page(s). http://google.com
+2. En-1999. (2024). Gesture Recognition. GitHub. https://github.com/En-1999/gesture_recongnition.
 
-*Tip: we use [https://www.citethisforme.com](https://www.citethisforme.com) to make this task even easier.* 
 
-----
 
 ## Declaration of Authorship
 
-I, AUTHORS NAME HERE, confirm that the work presented in this assessment is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.
+I, Zekun Wang, confirm that the work presented in this assessment is my own. Where information has been derived from other sources, I confirm that this has been indicated in the work.
 
 
 *Digitally Sign by typing your name here*
 
+
 ASSESSMENT DATE
+25/4/2024
 
 Word count: 
