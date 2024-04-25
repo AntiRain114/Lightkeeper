@@ -5,21 +5,47 @@ Name of author, link to github repo with project work in / link to Edge Impulse 
 ## Introduction
 The goal of LightKeeper is to give embedded systems the ability to control lights through gesture recognition based on pre-trained tensorflow lite models. Users should be able to use special gestures to control the lighting system, allowing the smart lighting system to provide users with more convenient services. In the smart home market, there is no shortage of products that can control lighting systems, but most of them rely on voice recognition functions, which require users to express their thoughts and correctly identify them before they can control the lighting system. This method is not fast enough and can be improved to be more convenient. After learning tensorflow lite and studying the examples provided by tensorflow official, I got the inspiration for this project. The project can be roughly divided into two phases. The first phase is based on the work identification produced by 20bn-jester, and the code is completely rewritten by the author. However, since the model was far from ideal, the author chose the second option. This solution is based on the gesture_recongnition project on github and controls the lighting system by identifying the numbers represented by specific gestures.
 
+
+
 ## Research Question
 There are three main problems to be solved. The first is to ensure high accuracy during model testing, which is the basis for subsequent work. The second issue is ensuring that the program can run correctly on the Raspberry Pi, which is also a challenge due to changes in development environments and packages. The third problem is to ensure the high performance and high recognition accuracy of the system in actual experiments.
 
 ## Application Overview
 The system built in this project mainly includes three hardware parts and two software modules. The hardware module of the system consists of a camera module, a Raspberry Pi, and LEDs that simulate an intelligent lighting system. The software mainly consists of two python scripts, which are placed in the same folder. Since the picamera2 package and tensorflow_runtime package on the Raspberry Pi are difficult to use at the same time, the author chose to create two independent screen windows, one in the system Run the image capture script in the python environment and store the image in the same path as the script; the other reads the captured image from the folder, identifies it, and then uses the GPIO package to control the switch and brightness of the LED that simulates the intelligent lighting system. . This results in a certain delay in the system and can only be used as a temporary compromise.
+![APP1](app1.jpg)
+Figure 1: Hardware components
+
+![APP2](app2.jpg)
+Figure 2: Software components
 
 ## Data
 For the first phase of the project, the authors are using the 20bn-jester dataset. This data set is a gesture motion captured frame by frame from a large number of videos, and the amount of data is very large. These data are placed in different folders, each folder is named the number of the video, and the file name of each picture in the folder is determined according to the chronological order of the video. Therefore, different videos will produce different numbers of screenshots, and the image file names may even be discontinuous. The author must use a special script to ensure that the file names are continued. And before training the model, the number of input pictures is specified. For those with more than one, non-key frames are removed, and for those with insufficient, all black pictures are added. In the second stage, the data used in gesture_recongnition has been well processed. The gesture images symbolizing 0-9 are stored in corresponding folders named 0-9 respectively, and no additional processing is required. However, the amount of data is smaller than 20bn-jester.
 
+![SOR1](00001.jpg)
+Figure 3: Training set for Stage1
+
+![SOR2](0.jpg)
+Figure 4: Training set for Stage2
+
 ## Model
 For the first stage model, the complexity of capturing the spatial and temporal dimensions is very high for the field of video action recognition. To address these challenges, different neural network architectures are employed to take advantage of each architecture's unique advantages in processing complex video data. The authors tried many model structures, but the resulting models were of poor quality. The author has tried 3D-CNN, 2D-CNN+LSTM, and tried to build a ResNet3D model by himself. 3D Convolutional Neural Networks (3D-CNN) are designed to capture the time course of frames in a video by adding a third dimension (time) to the convolutional layers. This enables the model to process a sequence of frames as a single input, extracting features that encapsulate motion information and spatial features, making the method well suited for gesture recognition in video. Combining 2D-CNN with an LSTM (long short-term memory) network is a hybrid approach where 2D-CNN is used to extract spatial features from individual frames, and then the sequential outputs of these convolutional layers are fed into the LSTM to capture dynamic temporal relationships. This combination leverages the strengths of CNNs in feature detection and the ability of LSTMs to handle sequence predictions. ResNet3D is an adaptation of the highly successful ResNet architecture for 3D data, which incorporates residual learning to help train deeper networks by using skip connections, or shortcuts to skip certain layers. In video action recognition, ResNet3D modifies standard ResNet by replacing 2D operations with 3D equivalent operations to effectively handle the temporal dimension and enhance the model's ability to learn richer and more complex spatiotemporal features. For 20bn-jester, according to the kagge rankings, ResNet3D101 can achieve the best results. However, the model performance of the three weeks trained by the author himself was very poor, among which 2D-CNN+LSTM performed the best. When the author tried to call the preset resNet3D model in the tensorflow_model package, the author's virtual environment was completely destroyed due to incompatible package versions. The effect is not ideal, and it takes more time to adjust the model algorithm or use the visual Transformer algorithm. The accuracy of this model is very low. For the second stage model, 2D-CNN is used to achieve recognition. As mentioned earlier, 2D-CNN can extract spatial features from images very well. The model performs very well in the validation set, but performs very erratically in the experimental set.
+![RES1](result_for_stage1.png)
+Figure 5: Result fot satge1
+![RES2](res2.png)
+Figure 6: Result fot satge2
+
 
 ## Experiments
 The first-stage model performed poorly on the validation set, with a maximum accuracy of 25%. Therefore there is no need to conduct experiments. The author only describes the model of the second stage here. First of all, the author used the pictures taken by his mobile phone as the experimental set to test the quality of the model. The effect is very long, because the pictures in the training set are all 150 pixels * 150 pixels, and the pixels of the author's mobile phone are too high, which will produce unnecessary noise after scaling. feature. Therefore, the performance in this experimental set was also very poor. None of the 10 photos taken by the author could be successfully detected. The author then used the training material capture script used by the original author of the project to create a second experimental set, but the recognition accuracy was still very low. The author then changed the solid color background and used material capture software to create a third data set, directly achieving good recognition accuracy.
 The author then deployed the model on the Raspberry Pi and used the Raspberry Pi's camera to conduct experiments. After looping the shots, the accuracy rate was very low.Currently, in the case of complex backgrounds and uncertain recognition distances, this system can only control the switch of LED bulbs and cannot accurately control the brightness adjustment.
+![RES2](5.jpg)
+Figure 7: Test set1
+![RES2](8.jpg)
+Figure 8: Test set2
+![RES2](1510.jpg)
+Figure 9: Test set3
+![RES2](1516.jpg)
+Figure 7: Test set3
 
 ## Results and Observations
 Experimental results highlight the importance of training data quality and diversity to achieve robust gesture recognition performance. The model performed well on the training set and similar datasets, but did not perform well on real-world scenes captured by the Raspberry Pi camera. This observation suggests that the training data lacks sufficient diversity in terms of background complexity, lighting conditions, and gesture variations.
