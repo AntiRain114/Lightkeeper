@@ -39,14 +39,16 @@ Figure 6: Result fot satge2
 ## Experiments
 The first-stage model performed poorly on the validation set, with a maximum accuracy of 25%. Therefore there is no need to conduct experiments. The author only describes the model of the second stage here. First of all, the author used the pictures taken by his mobile phone as the experimental set to test the quality of the model. The effect is very long, because the pictures in the training set are all 150 pixels * 150 pixels, and the pixels of the author's mobile phone are too high, which will produce unnecessary noise after scaling. feature. Therefore, the performance in this experimental set was also very poor. None of the 10 photos taken by the author could be successfully detected. The author then used the training material capture script used by the original author of the project to create a second experimental set, but the recognition accuracy was still very low. The author then changed the solid color background and used material capture software to create a third data set, directly achieving good recognition accuracy.
 The author then deployed the model on the Raspberry Pi and used the Raspberry Pi's camera to conduct experiments. After looping the shots, the accuracy rate was very low.Currently, in the case of complex backgrounds and uncertain recognition distances, this system can only control the switch of LED bulbs and cannot accurately control the brightness adjustment.
-![RES2](5.jpg)
+![RES2](image.jpg)
 Figure 7: Test set1
+![RES2](5.jpg)
+Figure 8: Test set1
 ![RES2](8.jpg)
-Figure 8: Test set2
+Figure 9: Test set2
 ![RES2](1510.jpg)
-Figure 9: Test set3
+Figure 10: Test set3
 ![RES2](1516.jpg)
-Figure 7: Test set3
+Figure 11: Test set3
 
 ## Results and Observations
 Experimental results highlight the importance of training data quality and diversity to achieve robust gesture recognition performance. The model performed well on the training set and similar datasets, but did not perform well on real-world scenes captured by the Raspberry Pi camera. This observation suggests that the training data lacks sufficient diversity in terms of background complexity, lighting conditions, and gesture variations.
