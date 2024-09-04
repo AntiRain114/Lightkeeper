@@ -10,12 +10,9 @@ The goal of this project is to develop a gesture recognition system that enables
 
 - **Real-time Gesture Recognition**: Utilizes a CNN optimized for low-latency to ensure instant response to gestures, enhancing user experience over voice-activated systems.
 - **Intuitive Numerical Gestures**: Recognizes numerical gestures (0-9) for a universally understood interface, overcoming language barriers.
-- **Adaptive Lighting Control**: Allows nuanced control of lighting, correlating gestures with brightness levels for precise adjustments.
 - **Energy-Efficient Edge Processing**: Performs all processing on a Raspberry Pi, eliminating cloud dependency to reduce latency, enhance privacy, and conserve power.
 - **Scalable and Flexible**: Modular design supports expansion for additional gestures and smart home device control, ensuring future adaptability.
 - **Enhanced Accessibility**: Offers a non-verbal control option, beneficial for users with speech impairments or in noise-sensitive environments.
-- **Continuous Learning**: Features a feedback mechanism to improve gesture recognition accuracy over time.
-- **Privacy-Focused**: Activates only with deliberate gestures within the camera's view, addressing privacy concerns of always-listening devices.
 
 This system advances smart home interaction by combining advanced machine learning with user-friendly design, offering a natural, efficient, and inclusive method for controlling smart devices.
 
@@ -99,25 +96,25 @@ The resulting dataset exhibits the following key characteristics:
 
 5. **Color Space:** Images were captured and stored in the BGR color space, aligning with OpenCV's default color representation.
 
-![Sample Images](media/0.jpg)
+<img src="media/0.jpg" alt="Sample Images0" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 0
-![Sample Images](media/1.jpg)
+<img src="media/1.jpg" alt="Sample Images1" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 1
-![Sample Images](media/2.jpg)
+<img src="media/2.jpg" alt="Sample Images2" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 2
-![Sample Images](media/3.jpg)
+<img src="media/3.jpg" alt="Sample Images3" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 3
-![Sample Images](media/4.jpg)
+<img src="media/4.jpg" alt="Sample Images4" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 4
-![Sample Images](media/5.jpg)
+<img src="media/5.jpg" alt="Sample Images5" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 5
-![Sample Images](media/6.jpg)
+<img src="media/6.jpg" alt="Sample Images6" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 6
-![Sample Images](media/7.jpg)
+<img src="media/7.jpg" alt="Sample Images7" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 7
-![Sample Images](media/8.jpg)
+<img src="media/8.jpg" alt="Sample Images8" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 8
-![Sample Images](media/9.jpg)
+<img src="media/9.jpg" alt="Sample Images9" style="display: block; margin: 0 auto;" />
 The hand gesture corresponding to 9
 
 ### 4.3.Data Preprocessing and Augmentation:
@@ -215,17 +212,20 @@ The model's performance was evaluated using several metrics:
 
 The experiments revealed that the implemented enhancements, particularly the combination of data augmentation, regularization techniques, and learning rate scheduling, led to significant improvements in model performance and generalization. The 5-fold cross-validation results demonstrated consistent performance across different data subsets, with average validation accuracies exceeding 99% and low variance between folds, indicating robust generalization capabilities.
 
-![Experiment Results 1](media/21.png)
+<img src="media/21.png" alt="Experiment Results 1" style="display: block; margin: 0 auto;" />
+
 However, the author also found a serious problem in the system during the actual test: if the distance between the system camera and the user's hand is not appropriate, or the angle of the gesture is not appropriate, the recognition accuracy will drop sharply. The following three pictures can intuitively illustrate this problem.
 
-![Experiment Results 2](media/22.png)
-Too far
+<img src="media/22.png" alt="Experiment Results 2" style="display: block; margin: 0 auto;" />
 
-![Experiment Results 3](media/23.png)
-Too close
+**Too far**
 
-![Experiment Results 4](media/24.png)
-Success
+<img src="media/23.png" alt="Experiment Results 3" style="display: block; margin: 0 auto;" />
+**Too close**
+
+<img src="media/24.png" alt="Experiment Results 4" style="display: block; margin: 0 auto;" />
+
+**Success**
 
 ## 7.Results and Observations
 
