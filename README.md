@@ -1,4 +1,5 @@
 # Gesture Recognition System for Smart Lighting Control
+Zekun Wang, https://github.com/AntiRain114/Lightkeeper
 
 ## 1.Introduction
 
