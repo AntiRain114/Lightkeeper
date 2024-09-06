@@ -213,6 +213,7 @@ However, the author also found a serious problem in the system during the actual
 **Too far**
 
 <img src="media/23.png" alt="Experiment Results 3" style="display: block; margin: 0 auto;" />
+
 **Too close**
 
 <img src="media/24.png" alt="Experiment Results 4" style="display: block; margin: 0 auto;" />
