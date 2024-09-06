@@ -135,15 +135,6 @@ To enhance the dataset's variability and the model's generalization capabilities
 
 These augmentations were implemented using TensorFlow's image processing capabilities and applied during the training process to introduce variability.
 
-### 4.4.Dataset Partitioning:
-
-The complete dataset was strategically divided to support model development and evaluation:
-
-- Training Set: 70% of the data, used for model training.
-- Validation Set: 15% of the data, used for hyperparameter tuning and early stopping.
-- Test Set: 15% of the data, reserved for final model evaluation.
-
-A stratified sampling approach was employed to ensure class balance across all partitions.
 
 ## 5.Model
 
